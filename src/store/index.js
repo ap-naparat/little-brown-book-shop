@@ -89,9 +89,6 @@ export default new Vuex.Store({
     cashBack (state, getters) {
       const paidAmountNumber = parseInt(state.paidAmount, 10)
       if (paidAmountNumber > getters.totalNet) {
-        console.log(getters.totalNet, 'getters.totalNet')
-        console.log(paidAmountNumber, 'paidAmountNumber')
-        console.log(paidAmountNumber - getters.totalNet, 'paidAmountNumber - getters.totalNet')
         return paidAmountNumber - getters.totalNet
       }
       return 0
