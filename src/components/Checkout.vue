@@ -46,6 +46,9 @@ export default {
       border: 1px solid lightgray;
       margin: 0 0 25px;
       padding: 20px 40px;
+      @media (max-width: 600px) {
+        padding: 20px;
+      }
     }
 }
 </style>

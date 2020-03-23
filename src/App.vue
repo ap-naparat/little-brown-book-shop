@@ -101,6 +101,10 @@ body {
     &:focus {
       outline: 0 none;
     }
+    @media (max-width: 600px) {
+      font-size: 10px;
+      padding: 5px 10px;
+    }
   }
 }
 </style>

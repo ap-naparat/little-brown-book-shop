@@ -11,7 +11,7 @@
         class="list-item"
       >
        <div class="list__mockimg"><img :src="list.image" :alt="list.title" /></div>
-       <div>Title: {{ list.title }}</div>
+       <div class="text--overflow">Title: {{ list.title }}</div>
        <div>Price: {{ list.price }} ฿</div>
         <a class="button__add" @click="addToCart(list)">
           Add to Cart
@@ -67,13 +67,25 @@ export default {
     &:focus {
       outline: 0 none;
     }
+    @media (max-width: 600px) {
+      width: 70%;
+    }
   }
   &__icon {
     font-size: 28px;
     margin: 0 10px;
   }
 }
+.text {
+  &--overflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
 .list {
+  padding: 0;
+  margin: 0;
   li {
     font-size: 16px;
     background: #fff;
@@ -89,6 +101,12 @@ export default {
     a {
       text-align: center;
     }
+    @media (max-width: 1366px) {
+      width: 18%;
+    }
+    @media (max-width: 600px) {
+      width: 35%;
+    }
   }
   &__mockimg {
     width: 100%;
@@ -98,6 +116,9 @@ export default {
       height: 250px;
       display:block;
       margin: 15px auto;
+      @media (max-width: 991px) {
+        height: 200px;
+      }
     }
   }
   &__data {

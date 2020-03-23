@@ -22,6 +22,9 @@ export default {
     h1 {
       font-size: 3em;
       color: #07b53b;
+      @media (max-width: 600px) {
+        font-size: 2.2em;
+      }
     }
   }
 </style>

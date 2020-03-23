@@ -22,7 +22,7 @@
         </div>
         <div class="checkout__content">
           <div class="cart__footer">
-              <h2 class="cart__text--left">Summary</h2>
+              <h2 class="cart__text--nomargin cart__text--left">Summary</h2>
               <div class="cart__flex">
                 <span><p>Subtotal: </p></span>
                 <span><p>{{ total }} ฿</p></span>
@@ -106,6 +106,9 @@ export default {
               font-weight: bold;
               text-align: left;
               font-size:22px;
+              @media (max-width: 600px) {
+                font-size: 14px;
+              }
             }
             td {
               padding: 10px 0;
@@ -113,7 +116,10 @@ export default {
               border-bottom: 1px solid #000;
               text-align:left;
               &:first-child {
-                width: 45%;
+                width: 47%;
+              }
+              @media (max-width: 600px) {
+                font-size: 12px;
               }
             }
         }
@@ -123,6 +129,9 @@ export default {
   &__text {
     &--left {
       text-align: left;
+    }
+    &--nomargin {
+      margin: 0;
     }
   }
   &__footer {

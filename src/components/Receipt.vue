@@ -31,6 +31,9 @@ export default {
       border: 1px dashed #000;
       margin: 0 auto;
       padding: 30px;
+      @media (max-width: 600px) {
+        width: 75%;
+      }
     }
     &__payment {
       display: flex;
