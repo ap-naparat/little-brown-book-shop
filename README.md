@@ -26,6 +26,13 @@ VUE_APP_APIKEY= YOUR_APP_APIKEY
 VUE_APP_END_POINT= YOUR_APP_ENDPOINT_DEV 
 ```
 
+### Production
+Add .env.production.local file in the root of your project:
+```
+VUE_APP_APIKEY= YOUR_APP_APIKEY
+VUE_APP_END_POINT= YOUR_APP_ENDPOINT_DEV
+```
+
 **After add .env files, must be reload application,
 
 # Compiles
@@ -33,13 +40,6 @@ VUE_APP_END_POINT= YOUR_APP_ENDPOINT_DEV
 ### Development Environment
 ```
 $ yarn run serve
-```
-
-### Production
-Add .env.production.local file in the root of your project:
-```
-VUE_APP_APIKEY= YOUR_APP_APIKEY
-VUE_APP_END_POINT= YOUR_APP_ENDPOINT_DEV
 ```
 
 ### Production Environment
