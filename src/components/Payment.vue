@@ -8,7 +8,7 @@
       </div>
       <div>
         <label>Cash : </label>
-        <input class="payment__amount" type="text" v-model="paidAmount" />
+        <input class="payment__amount" type="text" v-model="paidAmount"/>
       </div>
       <div>
           <label>Change : {{ cashBack }} ฿ </label>
@@ -25,27 +25,25 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'Payment',
-  data () {
-    return {
-      paidAmount: ''
-    }
-  },
   computed: {
     ...mapGetters({
       totalNet: 'totalNet',
-      cart: 'cartList'
+      cart: 'cartList',
+      cashBack: 'cashBack',
+      paidAmount: 'paidAmount'
     }),
-    cashBack () {
-      const paidAmountNumber = parseInt(this.paidAmount, 10)
-      if (paidAmountNumber > this.totalNet) {
-        return parseInt(this.paidAmount, 10) - parseInt(this.totalNet, 10)
-      }
-      return 0
-    },
     validatePay () {
       return (
         this.paidAmount > 0 && this.cashBack >= 0 && this.paidAmount >= this.totalNet
       )
+    },
+    paidAmount: {
+      get () {
+        return this.$store.state.paidAmount
+      },
+      set (value) {
+        this.$store.commit('updateAmount', value)
+      }
     }
   },
   methods: {

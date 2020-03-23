@@ -90,5 +90,17 @@ body {
       pointer-events: none;
     }
   }
+  &__remove {
+    background: #ff0000;
+    color: #fff;
+    border: 0px;
+    padding: 5px 20px;
+    font-size:16px;
+    cursor: pointer;
+    border-radius: 5px;
+    &:focus {
+      outline: 0 none;
+    }
+  }
 }
 </style>

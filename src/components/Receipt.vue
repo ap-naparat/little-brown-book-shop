@@ -1,7 +1,7 @@
 <template>
     <div class="receipt__wrapper">
         <h2>Little Brown Book Shop</h2>
-        <p>Address: Kasorn Tower</p>
+        <p>Address: Gaysorn Tower</p>
         <h2>CASH RECEIPT</h2>
         <CartList />
         <h3>THANK YOU</h3>
@@ -10,7 +10,6 @@
 </template>
 <script>
 import CartList from '@/components/CartList.vue'
-// @ is an alias to /src
 export default {
   name: 'Receipt',
   components: {

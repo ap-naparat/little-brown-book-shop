@@ -15,7 +15,7 @@
                     <td>{{ item.title }}</td>
                     <td>x{{ item.quantity }}</td>
                     <td>{{ item.price }} ฿</td>
-                    <td v-if="showRemove"><button @click="removeFromCart(index)">Remove</button></td>
+                    <td v-if="showRemove"><button class="button__remove" @click="removeFromCart(index)">Remove</button></td>
                 </tr>
             </tbody>
         </table>
@@ -35,6 +35,10 @@
                 <span class="cart__footer--bold"><h3>Total: </h3></span>
                 <span><h3 class="cart__footer--green">{{ totalNet }} ฿</h3></span>
               </div>
+              <div class="cart__flex" v-if="showChange">
+                <span class="cart__footer--bold"><p>Change: </p></span>
+                <span><p>{{ cashBack }} ฿</p></span>
+              </div>
           </div>
         </div>
     </div>
@@ -46,9 +50,11 @@ export default {
   name: 'CartList',
   data () {
     const routepath = this.$route.path === '/payment' || this.$route.path === '/receipt' ? this.showRemove = false : this.showRemove = true
+    const routereceipt = this.$route.path === '/receipt' ? this.showChange = true : this.showChange = false
     return {
       isActive: false,
-      showRemove: routepath
+      showRemove: routepath,
+      showChange: routereceipt
     }
   },
   computed: {
@@ -58,16 +64,14 @@ export default {
       getDiscount: 'getDiscount',
       total: 'total',
       sumDiscount: 'sumDiscount',
-      totalNet: 'totalNet'
+      totalNet: 'totalNet',
+      cashBack: 'cashBack'
     }),
     appIcon () {
       return faShoppingCart
     }
   },
   methods: {
-    openCart () {
-      this.isActive = !this.isActive
-    },
     removeFromCart (index) {
       this.$store.dispatch('removeFromCart', index)
     }
@@ -91,27 +95,6 @@ export default {
     a {
       text-align: center;
     }
-  }
-}
-.button {
-  &__quantity {
-    background: #07b53b;
-    color: #fff;
-    border: 0px;
-    padding: 5px 15px;
-    font-size: 20px;
-    border-radius: 5px;
-    margin: 0 10px;
-    &--remove {
-      background: #ff0000;
-    }
-  }
-  &__add {
-    background:#07b53b;
-    padding: 5px 20px;
-    color: #fff;
-    border-radius: 10px;
-    cursor: pointer;
   }
 }
 .table {

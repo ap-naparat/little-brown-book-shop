@@ -85,6 +85,16 @@ export default new Vuex.Store({
       return state.inCart.reduce((sum, p) => {
         return sum + p.quantity
       }, 0)
+    },
+    cashBack (state, getters) {
+      const paidAmountNumber = parseInt(state.paidAmount, 10)
+      if (paidAmountNumber > getters.totalNet) {
+        console.log(getters.totalNet, 'getters.totalNet')
+        console.log(paidAmountNumber, 'paidAmountNumber')
+        console.log(paidAmountNumber - getters.totalNet, 'paidAmountNumber - getters.totalNet')
+        return paidAmountNumber - getters.totalNet
+      }
+      return 0
     }
   },
   mutations: {
@@ -109,6 +119,9 @@ export default new Vuex.Store({
     },
     fetchBookList (state, { res }) {
       state.bookList = res.data.bookList
+    },
+    updateAmount (state, payload) {
+      state.paidAmount = payload
     }
   },
   actions: {
