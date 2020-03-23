@@ -1,6 +1,7 @@
 # - Little Brown Book Shop -
 
 Little brown book shop is a POS system. This project use Vue.js to developed.
+Demo https://littlebrownbookshop.netlify.com/
 
 # Clone
 Clone this project from: https://github.com/ap-naparat/little-brown-book-shop.git
